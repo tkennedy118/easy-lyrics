@@ -1,0 +1,56 @@
+body {
+    height: 100%;
+    background-image: linear-gradient(#4d4d4d, #262626);
+    color: white;
+    padding: 0%;
+}
+
+header {
+    width: 95%;
+    margin: auto;
+    padding: 10px;
+    background-color: #595959;
+    text-align: center;
+    border-style: solid;
+    border-color: #29a329;
+    border-width: 1px;
+    border-radius: 10px;
+    margin-bottom: 20px;
+}
+
+h1 {
+    color: white;
+}
+
+.lyricsMainDiv {
+    width: 95%;
+    margin: auto;
+    padding: 10px;
+    background-color: #595959;
+    text-align: center;
+    border-style: solid;
+    border-color: #29a329;
+    border-width: 1px;
+    border-radius: 10px;
+}
+
+.artistInput, .songInput {
+    margin-top: 10px;
+}
+
+.searchButton {
+    background-color: #29a329;
+    border-style: solid;
+    border-color: #29a329;
+    border-radius: 5px;
+    margin-top: 10px;
+}
+
+.lyricsInput {
+
+}
+
+.lyricsTextDiv {
+    margin-top: 10px;
+    background: radial-gradient(#8c8c8c, #595959, #595959);
+}
