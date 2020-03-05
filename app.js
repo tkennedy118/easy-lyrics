@@ -1,34 +1,23 @@
-
-var searchlyURL = "https://searchly.asuarez.dev/api/v1/song/search" + "?query=" + encodeURI("Beatles");
-$.ajax({
-  url: searchlyURL,
-  method: "GET"
-}).then(function(response) {
-    let songSug = response.response.results;
-    console.log(songSug.length)
-    songSug.forEach((element,index) => {
-        //console.log(element.name);
-        $(`.songSuggestion${index+1}`).text(JSON.stringify(element.name));
-    });
-    // for (var i = 0; i < Math.floor(Math.random() + 4); i++){
-    // var randomSong =  Math.floor(Math.random() * response.response.results.length);
-    // var songSug = response.response.results[randomSong].name;
-    // console.log (songSug);
-    // };
-    
-
-    // $(".songSuggestion1").text(JSON.stringify(songSug));
-    // $(".songSuggestion2").text(JSON.stringify(songSug));
-    // $(".songSuggestion3").text(JSON.stringify(songSug));
-    // $(".songSuggestion4").text(JSON.stringify(songSug));
-
-
-});
-
 $(document).ready(function() {
 
 var vidId;
 
+$('.searchButton').click(function () {
+
+    var artist = $('#artistInput').val();
+    var title = $('#songInput').val();
+
+    var queryURL = "https://private-anon-a847fd9858-lyricsovh.apiary-proxy.com/v1/" + artist + "/" + title;
+
+    $.ajax({
+        url: queryURL,
+        method: "GET"
+    }).then(function(response) {
+        $('.lyricsTextDiv').text (response.lyrics);
+        console.log (response.lyrics);
+    });
+});
+  
 const getYouTubeVideo = function() {
     
     // local variables
@@ -67,6 +56,33 @@ const showYouTubeVideo = function() {
 
 }
 
-getYouTubeVideo();
-}); 
+var searchlyURL = "https://searchly.asuarez.dev/api/v1/song/search" + "?query=" + encodeURI("Beatles");
+$.ajax({
+  url: searchlyURL,
+  method: "GET"
+}).then(function(response) {
+    let songSug = response.response.results;
+    console.log(songSug.length)
+    songSug.forEach((element,index) => {
+        //console.log(element.name);
+        $(`.songSuggestion${index+1}`).text(JSON.stringify(element.name));
+    });
 
+  
+getYouTubeVideo();
+  
+}); 
+=======
+
+var searchlyURL = "https://searchly.asuarez.dev/api/v1/song/search" + "?query=" + encodeURI("Beatles");
+$.ajax({
+  url: searchlyURL,
+  method: "GET"
+}).then(function(response) {
+    let songSug = response.response.results;
+    console.log(songSug.length)
+    songSug.forEach((element,index) => {
+        //console.log(element.name);
+        $(`.songSuggestion${index+1}`).text(JSON.stringify(element.name));
+    });
+});
