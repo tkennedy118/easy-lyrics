@@ -1,3 +1,7 @@
+$(document).ready(function() {
+
+var vidId;
+
 $('.searchButton').click(function () {
 
     var artist = $('#artistInput').val();
@@ -13,10 +17,7 @@ $('.searchButton').click(function () {
         console.log (response.lyrics);
     });
 });
-$(document).ready(function() {
-
-var vidId;
-
+  
 const getYouTubeVideo = function() {
     
     // local variables
@@ -55,5 +56,33 @@ const showYouTubeVideo = function() {
 
 }
 
+var searchlyURL = "https://searchly.asuarez.dev/api/v1/song/search" + "?query=" + encodeURI("Beatles");
+$.ajax({
+  url: searchlyURL,
+  method: "GET"
+}).then(function(response) {
+    let songSug = response.response.results;
+    console.log(songSug.length)
+    songSug.forEach((element,index) => {
+        //console.log(element.name);
+        $(`.songSuggestion${index+1}`).text(JSON.stringify(element.name));
+    });
+
+  
 getYouTubeVideo();
+  
 }); 
+=======
+
+var searchlyURL = "https://searchly.asuarez.dev/api/v1/song/search" + "?query=" + encodeURI("Beatles");
+$.ajax({
+  url: searchlyURL,
+  method: "GET"
+}).then(function(response) {
+    let songSug = response.response.results;
+    console.log(songSug.length)
+    songSug.forEach((element,index) => {
+        //console.log(element.name);
+        $(`.songSuggestion${index+1}`).text(JSON.stringify(element.name));
+    });
+});
