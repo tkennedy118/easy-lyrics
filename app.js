@@ -1,15 +1,16 @@
 $(document).ready(function() {
 
-    var vidId;
-
+var vidId;
 
 const getYouTubeVideo = function() {
-
-    console.log("inside getYouTubeVideo");
     
+    // local variables
     let key = "AIzaSyBU0Tdn2ym_MjMojWVuwp4Qd5XYr3jUzhk";
-    let queryURL = "https://www.googleapis.com/youtube/v3/search?part=snippet&maxResults=1&q=surfing&key=" + key;
+    let search = encodeURI("Taylor Swift" + " music video");
+    let queryURL = "HTTPS://www.googleapis.com/youtube/v3/search?part=snippet&maxResults=1&q=" + search + "&key=" + key;
 
+
+    // request info from YouTube API
     $.ajax({ url: queryURL, method: "GET"})
         .then(function(response) {
             console.log("inside ajax");
@@ -17,54 +18,27 @@ const getYouTubeVideo = function() {
 
             vidId = response.items[0].id.videoId;
             console.log(vidId)
-        })
 
+            showYouTubeVideo();
+        });
+}
 
+const showYouTubeVideo = function() {
 
-    // COPIED FROM YOUTUBE IFRAME PLAYER API
+    // local variables
+    let videoFrame = $("#video-frame");
+    let source = "https://www.youtube.com/embed/" + vidId + "?enablejsapi=1";
 
-    var tag = document.createElement('script');
-    tag.id = 'iframe-demo';
-    tag.src = 'https://www.youtube.com/iframe_api';
-    var firstScriptTag = document.getElementsByTagName('script')[0];
-    firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
-  
-    var player;
-    function onYouTubeIframeAPIReady() {
-      player = new YT.Player('existing-iframe-example', {
-            events: {
-                'onReady': onPlayerReady,
-                'onStateChange': onPlayerStateChange
-            }
-      });
-    }
-    function onPlayerReady(event) {
-      document.getElementById('existing-iframe-example').style.borderColor = '#FF6D00';
-    }
-    function changeBorderColor(playerStatus) {
-      var color;
-      if (playerStatus == -1) {
-        color = "#37474F"; // unstarted = gray
-      } else if (playerStatus == 0) {
-        color = "#FFFF00"; // ended = yellow
-      } else if (playerStatus == 1) {
-        color = "#33691E"; // playing = green
-      } else if (playerStatus == 2) {
-        color = "#DD2C00"; // paused = red
-      } else if (playerStatus == 3) {
-        color = "#AA00FF"; // buffering = purple
-      } else if (playerStatus == 5) {
-        color = "#FF6DOO"; // video cued = orange
-      }
-      if (color) {
-        document.getElementById('existing-iframe-example').style.borderColor = color;
-      }
-    }
-    function onPlayerStateChange(event) {
-      changeBorderColor(event.data);
-    }
+    // set video attributes and src
+    videoFrame.attr( {
+        width: "640px",
+        height: "360px",
+        frameborder: "0px",
+        style: "border: solid 4px #37474F",
+        src: source
+    });
+
 }
 
 getYouTubeVideo();
-
 }); 
