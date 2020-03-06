@@ -11,11 +11,14 @@ $(document).ready(function() {
 
         $.ajax({
             url: queryURL,
-            method: "GET"
-        }).then(function(response) {
-            $('.lyricsTextDiv').text (response.lyrics);
-            console.log (response.lyrics);
-        });
+            method: "GET",
+            success: function(response){
+                $('.lyricsTextDiv').text (response.lyrics);
+            },
+            error: function(){
+                $('.lyricsTextDiv').text ("Try again");
+            }
+          });
     });
     
     const getYouTubeVideo = function() {
