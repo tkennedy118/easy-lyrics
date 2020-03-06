@@ -4,9 +4,23 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
     <link rel="stylesheet" href="style.css">
+
+    
+    <!-- jQuery -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    
+    <!-- YouTube API -->
     <script src="https://www.youtube.com/player_api"></script>
+
+
+    <!-- UIkit CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/uikit@3.3.3/dist/css/uikit.min.css" />
+
+    <!-- UIkit JS -->
+    <script src="https://cdn.jsdelivr.net/npm/uikit@3.3.3/dist/js/uikit.min.js"></script>
+
     <title>Easy Lyrics</title>
 </head>
 <body>
@@ -40,12 +54,23 @@
     
             </div>
     
+            <!--------------------------------- YouTube video section --------------------------------->
             <div class="videoDiv">
-    
-                <!-- the iframe where music video is imbedded -->
-                <iframe id="video-frame"></iframe>
-    
+                <div uk-grid>
+                    <div uk-width-auto>
+                        <div class="uk-card uk-card-default uk-card-body">
+                            <!-- src provided dynamically -->
+                            <iframe id="current-vid"
+                                src=""
+                                alt="YouTube video for current song"
+                                width="1920" height="1080" allowfullscreen uk-responsive uk-video="automute: true"
+                                style="border: solid 2px #29a329">
+                            </iframe>
+                        </div>
+                    </div>
+                </div>
             </div>
+          <!-- ----------------------------------------------------------------------------------- -->
     
             <div class="relatedVideoDiv">
     
@@ -81,7 +106,7 @@
             </div>
 
         </div>
-
+      
     </div>
 
     <script type="text/javascript" src="app.js"></script>

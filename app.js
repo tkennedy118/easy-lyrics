@@ -6,6 +6,15 @@ $(document).ready(function() {
 
     $('.results').hide();
 
+    /****************************** VARIABLES related to YouTube API ******************************/
+
+    var youtubeVidId;                                           // id of specific video on youtube
+    var player;                                                 // YouTube Player object
+
+    /**********************************************************************************************/
+
+
+
     $('.searchButton').click(function () {
 
         $('.results').show();
@@ -30,48 +39,50 @@ $(document).ready(function() {
           });
     });
     
-    /* const getYouTubeVideo = function() {
+
+    /************************* FUNCTIONS related to YouTube functionality *************************/
+
+    // // FUNCTION: requests video from YouTube API
+    // const getYouTubeVideo = function() {
         
-        // local variables
-        let key = "AIzaSyBU0Tdn2ym_MjMojWVuwp4Qd5XYr3jUzhk";
-        let search = encodeURI("Taylor Swift" + " music video");
-        let queryURL = "HTTPS://www.googleapis.com/youtube/v3/search?part=snippet&maxResults=1&q=" + search + "&key=" + key;
+    //     // local variables
+    //     let key = "AIzaSyC9UX0aa1EBEDw0181Q2V3ljFoq0cGBbNI";
+    //     let search = encodeURI("Taylor Swift" + " music video");
+    //     let queryURL = "HTTPS://www.googleapis.com/youtube/v3/search?part=snippet&maxResults=1&q=" + search + "&key=" + key;
 
 
-        // request info from YouTube API
-        $.ajax({ url: queryURL, method: "GET"})
-            .then(function(response) {
-                console.log("inside ajax");
-                console.log(response);
+    //     // request info from YouTube API
+    //     $.ajax({ url: queryURL, method: "GET"})
+    //         .then(function(response) {
+    //             console.log("inside ajax");
+    //             console.log(response);
 
-                vidId = response.items[0].id.videoId;
-                console.log(vidId)
+    //             youtubeVidId = response.items[0].id.videoId;
+    //             console.log(youtubeVidId)
 
-                showYouTubeVideo();
-            });
-    } */
+    //             showYouTubeVideo();
+    //         });
+    // }
 
     const showYouTubeVideo = function() {
 
         // local variables
-        let videoFrame = $("#video-frame");
-        let source = "https://www.youtube.com/embed/" + vidId + "?enablejsapi=1";
+        let currentVid = $("#current-vid");
 
-        // set video attributes and src
-        videoFrame.attr( {
-            width: "640px",
-            height: "360px",
-            frameborder: "0px",
-            style: "border: solid 4px #37474F",
-            src: source
-        });
+        // * FOR TODAY ONLY */
+        youtubeVidId = "M7lc1UVf-VE";
+        let source = "https://www.youtube.com/embed/" + youtubeVidId + "?autoplay=0&showinfo=0&rel=0&modestbranding=1&playsinline=1";
 
+        currentVid.attr("src", source);
     }
-
+    
+    /********************************************************************************************* */
+    
+    
     var searchlyURL = "https://searchly.asuarez.dev/api/v1/song/search" + "?query=" + encodeURI("Beatles");
     $.ajax({
-    url: searchlyURL,
-    method: "GET"
+        url: searchlyURL,
+        method: "GET"
     }).then(function(response) {
         let songSug = response.response.results;
         console.log(songSug.length)
@@ -81,5 +92,7 @@ $(document).ready(function() {
         });
     });
 
+
     // getYouTubeVideo();
+    showYouTubeVideo();
 });
