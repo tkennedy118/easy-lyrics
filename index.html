@@ -29,10 +29,13 @@
         <h1>Easy Lyrics</h1>
     </header>
 
-    <div class="lyricsMainDiv">
+    <div class="mainDiv">
 
-        <div class="lyricsInput">
+        <div class="instructions">
+            <p>Instructions/Intro</p>
+        </div>
 
+        <div class="inputDiv">
             <form>
                 <label for="artist">Artist:</label><br>
                 <input type="text" id="artistInput" name="artist"><br>
@@ -41,70 +44,70 @@
             </form>
 
             <button class="searchButton">Search</button>
-
         </div>
 
-        <div class="lyricsTextDiv">
+        <div class="results">
 
-            <p class="lyricsText"></p>
+            <div class="lyricsTextDiv">
 
-        </div>
-        <div class="videoDiv">
-
-        </div>
-
-        <div class="relatedVideoDiv">
-
-        </div>
-
-    </div>
-
-    <div class="uk-child-width-1-4@m uk-grid-small uk-grid-match" uk-grid>
-        <div>
-           <a href="#">
-            <div class="uk-card uk-card-default uk-card-hover uk-card-body">
-                <h3 class="uk-card-title songSuggestion1"></h3>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
-            </div>
-            </a>
-        </div>
-        <div>
-            <div class="uk-card uk-card-default uk-card-hover uk-card-body">
-                <h3 class="uk-card-title songSuggestion2"></h3>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
-            </div>
-        </div>
-        <div>
-            <div class="uk-card uk-card-default uk-card-hover uk-card-body">
-                <h3 class="uk-card-title songSuggestion3"></h3>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
-            </div>
-        </div>
-        <div>
-            <div class="uk-card uk-card-default uk-card-hover uk-card-body">
-                <h3 class="uk-card-title songSuggestion4"></h3>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
-            </div>
-        </div>
-    </div>
-
+                <p class="lyricsText"></p>
     
-    <!--------------------------------- YouTube video section --------------------------------->
-
-    <div uk-grid>
-        <div uk-width-auto>
-            <div class="uk-card uk-card-default uk-card-body">
-                <!-- src provided dynamically -->
-                <iframe id="current-vid"
-                    src=""
-                    alt="YouTube video for current song"
-                    width="1920" height="1080" allowfullscreen uk-responsive uk-video="automute: true"
-                    style="border: solid 2px #29a329">
-                </iframe>
             </div>
+    
+            <!--------------------------------- YouTube video section --------------------------------->
+            <div class="videoDiv">
+                <div uk-grid>
+                    <div uk-width-auto>
+                        <div class="uk-card uk-card-default uk-card-body">
+                            <!-- src provided dynamically -->
+                            <iframe id="current-vid"
+                                src=""
+                                alt="YouTube video for current song"
+                                width="1920" height="1080" allowfullscreen uk-responsive uk-video="automute: true"
+                                style="border: solid 2px #29a329">
+                            </iframe>
+                        </div>
+                    </div>
+                </div>
+            </div>
+          <!-- ----------------------------------------------------------------------------------- -->
+    
+            <div class="relatedVideoDiv">
+    
+                <div class="uk-child-width-1-4@m uk-grid-small uk-grid-match" uk-grid>
+                    <div>
+                       <a href="#">
+                        <div class="uk-card uk-card-default uk-card-hover uk-card-body">
+                            <h3 class="uk-card-title songSuggestion1"></h3>
+                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
+                        </div>
+                        </a>
+                    </div>
+                    <div>
+                        <div class="uk-card uk-card-default uk-card-hover uk-card-body">
+                            <h3 class="uk-card-title songSuggestion2"></h3>
+                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
+                        </div>
+                    </div>
+                    <div>
+                        <div class="uk-card uk-card-default uk-card-hover uk-card-body">
+                            <h3 class="uk-card-title songSuggestion3"></h3>
+                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
+                        </div>
+                    </div>
+                    <div>
+                        <div class="uk-card uk-card-default uk-card-hover uk-card-body">
+                            <h3 class="uk-card-title songSuggestion4"></h3>
+                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
+                        </div>
+                    </div>
+                </div>
+    
+            </div>
+
         </div>
+      
     </div>
-    <!-- ----------------------------------------------------------------------------------- -->
 
     <script type="text/javascript" src="app.js"></script>
 </body>

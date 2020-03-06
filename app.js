@@ -1,5 +1,11 @@
 $(document).ready(function() {
 
+    var vidId;
+    var artistG = "";
+    var titleG = "";
+
+    $('.results').hide();
+
     /****************************** VARIABLES related to YouTube API ******************************/
 
     var youtubeVidId;                                           // id of specific video on youtube
@@ -8,25 +14,35 @@ $(document).ready(function() {
     /**********************************************************************************************/
 
 
+
     $('.searchButton').click(function () {
 
-        var artist = $('#artistInput').val();
-        var title = $('#songInput').val();
+        $('.results').show();
+
+        artist = $('#artistInput').val();
+        title = $('#songInput').val();
 
         var queryURL = "https://private-anon-a847fd9858-lyricsovh.apiary-proxy.com/v1/" + artist + "/" + title;
 
         $.ajax({
             url: queryURL,
-            method: "GET"
-        }).then(function(response) {
-            $('.lyricsTextDiv').text (response.lyrics);
-            console.log (response.lyrics);
-        });
+            method: "GET",
+            success: function(response){
+                $('.lyricsTextDiv').text (response.lyrics);
+                artistG = artist;
+                titleG = title;
+            },
+            error: function(){
+                $('.lyricsTextDiv').text ("Song not found.");
+
+            }
+          });
     });
     
 
     /************************* FUNCTIONS related to YouTube functionality *************************/
 
+    // // FUNCTION: requests video from YouTube API
     // const getYouTubeVideo = function() {
         
     //     // local variables
@@ -59,27 +75,6 @@ $(document).ready(function() {
 
         currentVid.attr("src", source);
     }
-
-    // // FUNCTION: requests video from YouTube API
-    // const getYouTubeVideo = function() {
-        
-    //     // local variables
-    //     let key = "AIzaSyC9UX0aa1EBEDw0181Q2V3ljFoq0cGBbNI";
-    //     let search = encodeURI("Taylor Swift" + " music video");
-    //     // let queryURL = "HTTPS://www.googleapis.com/youtube/v3/search?part=snippet&maxResults=1&q=" + search + "&key=" + encodeURI(key);
-    //     let queryURL = "https://www.googleapis.com/youtube/v3/search?part=snippet&maxResults=25&q=surfing&key=" + key;
-
-
-    //     // request info from YouTube API
-    //     $.ajax({ url: queryURL, method: "GET"})
-    //         .then(function(response) {
-        
-    //             youtubeyoutubeVidId = response.items[0].id.videoId;
-    //             console.log(youtubeyoutubeVidId);
-    //         });
-    // }
-
-    
     
     /********************************************************************************************* */
     
