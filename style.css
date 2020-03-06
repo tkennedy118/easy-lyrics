@@ -54,3 +54,7 @@ h1 {
     margin-top: 10px;
     background: radial-gradient(#8c8c8c, #595959, #595959);
 }
+
+.songSuggestion1, .songSuggestion2, .songSuggestion3, .songSuggestion4 {
+    text-transform:capitalize;
+}

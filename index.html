@@ -7,8 +7,14 @@
     <link rel="stylesheet" href="style.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="https://www.youtube.com/player_api"></script>
+    <!-- UIkit CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/uikit@3.3.3/dist/css/uikit.min.css" />
+
+    <!-- UIkit JS -->
+    <script src="https://cdn.jsdelivr.net/npm/uikit@3.3.3/dist/js/uikit.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/uikit@3.3.3/dist/js/uikit-icons.min.js"></script>
     <title>Easy Lyrics</title>
-</head>
+    </head>
 <body>
 
     <header>
@@ -45,38 +51,44 @@
 
     </div>
 
-    <div class="uk-child-width-1-4@m uk-grid-small uk-grid-match" uk-grid>
-        <div>
-           <a href="#">
-            <div class="uk-card uk-card-default uk-card-hover uk-card-body">
-                <h3 class="uk-card-title songSuggestion1"></h3>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
-            </div>
-            </a>
-        </div>
-        <div>
-            <div class="uk-card uk-card-default uk-card-hover uk-card-body">
-                <h3 class="uk-card-title songSuggestion2"></h3>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
-            </div>
-        </div>
-        <div>
-            <div class="uk-card uk-card-default uk-card-hover uk-card-body">
-                <h3 class="uk-card-title songSuggestion3"></h3>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
-            </div>
-        </div>
-        <div>
-            <div class="uk-card uk-card-default uk-card-hover uk-card-body">
-                <h3 class="uk-card-title songSuggestion4"></h3>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
-            </div>
-        </div>
-    </div>
 
     
     <!-- the iframe where music video is imbedded -->
     <iframe id="video-frame"></iframe>
+
+
+
+
+    <div class="uk-child-width-1-4@m uk-grid-small uk-grid-match" uk-grid>
+        <div>  
+            <div class="uk-card uk-card-default uk-card-hover uk-card-body">
+                <button class="uk-button uk-button-default suggestionBtn1">
+                <h3 class="uk-card-title songSuggestion1"></h3>
+                </button>
+            </div>
+        </div>
+        <div>
+            <div class="uk-card uk-card-default uk-card-hover uk-card-body">
+                <button class="uk-button uk-button-default suggestionBtn2">
+                    <h3 class="uk-card-title songSuggestion2"></h3>
+                    </button>
+            </div>
+        </div>
+        <div>
+            <div class="uk-card uk-card-default uk-card-hover uk-card-body">
+                <button class="uk-button uk-button-default suggestionBtn3">
+                    <h3 class="uk-card-title songSuggestion3"></h3>
+                    </button>
+            </div>
+        </div>
+        <div>
+            <div class="uk-card uk-card-default uk-card-hover uk-card-body">
+                <button class="uk-button uk-button-default suggestionBtn4">
+                    <h3 class="uk-card-title songSuggestion4"></h3>
+                    </button>
+            </div>
+        </div>
+    </div>
 
     <script type="text/javascript" src="app.js"></script>
 </body>
