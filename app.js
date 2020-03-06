@@ -2,7 +2,11 @@ $(document).ready(function() {
 
     var vidId;
 
+    $('.results').hide();
+
     $('.searchButton').click(function () {
+
+        $('.results').show();
 
         var artist = $('#artistInput').val();
         var title = $('#songInput').val();
@@ -16,12 +20,12 @@ $(document).ready(function() {
                 $('.lyricsTextDiv').text (response.lyrics);
             },
             error: function(){
-                $('.lyricsTextDiv').text ("Try again");
+                $('.lyricsTextDiv').text ("Song not found.");
             }
           });
     });
     
-    const getYouTubeVideo = function() {
+    /* const getYouTubeVideo = function() {
         
         // local variables
         let key = "AIzaSyBU0Tdn2ym_MjMojWVuwp4Qd5XYr3jUzhk";
@@ -40,7 +44,7 @@ $(document).ready(function() {
 
                 showYouTubeVideo();
             });
-    }
+    } */
 
     const showYouTubeVideo = function() {
 
@@ -72,5 +76,5 @@ $(document).ready(function() {
         });
     });
 
-    getYouTubeVideo();
+    // getYouTubeVideo();
 });
