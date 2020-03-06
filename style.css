@@ -17,10 +17,6 @@ h1 {
     color: white;
 }
 
-.mainDiv {
-
-}
-
 .instructions {
     padding: 3px;
     text-align: center;
@@ -32,9 +28,6 @@ h1 {
     text-align: center;
 }
 
-.artistInput, .songInput {
-}
-
 .searchButton {
     background-color: #29a329;
     border-style: solid;
@@ -42,7 +35,8 @@ h1 {
     margin-top: 5px;
 }
 
-.results {
+.songSuggestion1, .songSuggestion2, .songSuggestion3, .songSuggestion4 {
+    text-transform:capitalize;
 }
 
 .lyricsTextDiv {

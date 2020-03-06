@@ -64,6 +64,7 @@ $(document).ready(function() {
     //         });
     // }
 
+
     const showYouTubeVideo = function() {
 
         // local variables
@@ -85,13 +86,27 @@ $(document).ready(function() {
         method: "GET"
     }).then(function(response) {
         let songSug = response.response.results;
-        console.log(songSug.length)
-        songSug.forEach((element,index) => {
-            //console.log(element.name);
-            $(`.songSuggestion${index+1}`).text(JSON.stringify(element.name));
-        });
-    });
 
+            songSug.forEach((element,index) => {
+
+                
+                let [songArtist, songName] = element.name.split(' - ');
+                //console.log(element.name);
+                console.log(songArtist);
+                $(`.songSuggestion${index+1}`).text(JSON.stringify(songArtist + " - " + songName));
+    
+                $('.suggestionBtn1').on('click', function() {
+                    console.log(songArtist);
+    
+                 let artistInput = $('#artistInput');
+                 let songInput = $('#songInput');
+    
+                 artistInput.val(artistInput.val() + songArtist);
+                 songInput.val(songInput.val() + songName);
+        
+                });
+            });
+    });
 
     // getYouTubeVideo();
     showYouTubeVideo();
