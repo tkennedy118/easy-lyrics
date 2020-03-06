@@ -5,14 +5,6 @@ $(document).ready(function() {
     var youtubeVidId;                                           // id of specific video on youtube
     var player;                                                 // YouTube Player object
 
-
-    // load the IFrame Player API code asynchronously
-    let tag = document.createElement("script");
-    tag.src = "http://www.youtube.com/iframe_api";
-
-    let iframeScriptTag = document.getElementsByTagName("script")[0];
-    iframeScriptTag.parentNode.insertBefore(tag, iframeScriptTag);
-
     /**********************************************************************************************/
 
 
@@ -35,62 +27,67 @@ $(document).ready(function() {
 
     /************************* FUNCTIONS related to YouTube functionality *************************/
 
-    // FUNCTION: requests video from YouTube API
-    const getYouTubeVideo = function() {
+    // const getYouTubeVideo = function() {
         
-        // local variables
-        let key = "AIzaSyBU0Tdn2ym_MjMojWVuwp4Qd5XYr3jUzhk";
-        let search = encodeURI("Taylor Swift" + " music video");
-        let queryURL = "HTTPS://www.googleapis.com/youtube/v3/search?part=snippet&maxResults=1&q=" + search + "&key=" + key;
+    //     // local variables
+    //     let key = "AIzaSyC9UX0aa1EBEDw0181Q2V3ljFoq0cGBbNI";
+    //     let search = encodeURI("Taylor Swift" + " music video");
+    //     let queryURL = "HTTPS://www.googleapis.com/youtube/v3/search?part=snippet&maxResults=1&q=" + search + "&key=" + key;
 
 
-        // request info from YouTube API
-        $.ajax({ url: queryURL, method: "GET"})
-            .then(function(response) {
+    //     // request info from YouTube API
+    //     $.ajax({ url: queryURL, method: "GET"})
+    //         .then(function(response) {
+    //             console.log("inside ajax");
+    //             console.log(response);
 
-                youtubeVidId = response.items[0].id.videoId;
-            });
-    }
+    //             youtubeVidId = response.items[0].id.videoId;
+    //             console.log(youtubeVidId)
 
-    // GLOBAL FUNCTION: create an <iframe> and a YouTube Player object after the API code downloads
-    window.onYouTubeIframeAPIReady = function() {
-
-        player = new YT.Player('player', {
-            height: '390',
-            width: '640',
-            videoId: 'M7lc1UVf-VE',
-            events: {
-                'onReady': onPlayerReady,
-                // 'onStateChange': onPlayerStateChange
-            }
-        });
-    }
-
-    // FUNCTION: the YouTube API calls this function when the video player is ready
-    const onPlayerReady = function(event) {
-        event.target.playVideo();
-    }
-
-    // FUNCTION: the YouTube API calls this function when the player's state changes.
-    // const onPlayerStateChange = function(event) {
-
-    //     if (event.data == YT.PlayerState.PLAYING) {
-    //         stopVideo;
-    //     }
+    //             showYouTubeVideo();
+    //         });
     // }
 
-    // FUNCTION: stop the video 
-    const stopVideo = function() {
-        player.stopVideo();
-      }
+    const showYouTubeVideo = function() {
 
+        // local variables
+        let currentVid = $("#current-vid");
+
+        // * FOR TODAY ONLY */
+        youtubeVidId = "M7lc1UVf-VE";
+        let source = "https://www.youtube.com/embed/" + youtubeVidId + "?autoplay=0&showinfo=0&rel=0&modestbranding=1&playsinline=1";
+
+        currentVid.attr("src", source);
+    }
+
+    // // FUNCTION: requests video from YouTube API
+    // const getYouTubeVideo = function() {
+        
+    //     // local variables
+    //     let key = "AIzaSyC9UX0aa1EBEDw0181Q2V3ljFoq0cGBbNI";
+    //     let search = encodeURI("Taylor Swift" + " music video");
+    //     // let queryURL = "HTTPS://www.googleapis.com/youtube/v3/search?part=snippet&maxResults=1&q=" + search + "&key=" + encodeURI(key);
+    //     let queryURL = "https://www.googleapis.com/youtube/v3/search?part=snippet&maxResults=25&q=surfing&key=" + key;
+
+
+    //     // request info from YouTube API
+    //     $.ajax({ url: queryURL, method: "GET"})
+    //         .then(function(response) {
+        
+    //             youtubeyoutubeVidId = response.items[0].id.videoId;
+    //             console.log(youtubeyoutubeVidId);
+    //         });
+    // }
+
+    
+    
     /********************************************************************************************* */
-
-
+    
+    
     var searchlyURL = "https://searchly.asuarez.dev/api/v1/song/search" + "?query=" + encodeURI("Beatles");
     $.ajax({
-    url: searchlyURL,
-    method: "GET"
+        url: searchlyURL,
+        method: "GET"
     }).then(function(response) {
         let songSug = response.response.results;
         console.log(songSug.length)
@@ -100,5 +97,7 @@ $(document).ready(function() {
         });
     });
 
-    getYouTubeVideo();
+
+    // getYouTubeVideo();
+    showYouTubeVideo();
 });
