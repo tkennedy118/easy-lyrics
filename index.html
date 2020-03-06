@@ -4,15 +4,23 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
     <link rel="stylesheet" href="style.css">
+
+    
+    <!-- jQuery -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    
+    <!-- YouTube API -->
     <script src="https://www.youtube.com/player_api"></script>
+
     <!-- UIkit CSS -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/uikit@3.3.3/dist/css/uikit.min.css" />
 
     <!-- UIkit JS -->
     <script src="https://cdn.jsdelivr.net/npm/uikit@3.3.3/dist/js/uikit.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/uikit@3.3.3/dist/js/uikit-icons.min.js"></script>
+
     <title>Easy Lyrics</title>
     </head>
 <body>
@@ -21,10 +29,13 @@
         <h1>Easy Lyrics</h1>
     </header>
 
-    <div class="lyricsMainDiv">
+    <div class="mainDiv">
 
-        <div class="lyricsInput">
+        <div class="instructions">
+            <p>Instructions/Intro</p>
+        </div>
 
+        <div class="inputDiv">
             <form>
                 <label for="artist">Artist:</label><br>
                 <input type="text" id="artistInput" name="artist"><br>
@@ -33,61 +44,68 @@
             </form>
 
             <button class="searchButton">Search</button>
-
         </div>
 
-        <div class="lyricsTextDiv">
+        <div class="results">
 
-            <p class="lyricsText"></p>
-
-        </div>
-        <div class="videoDiv">
-
-        </div>
-
-        <div class="relatedVideoDiv">
-
-        </div>
-
-    </div>
-
-
+            <div class="lyricsTextDiv">
+                <p class="lyricsText"></p>
+            </div>
     
-    <!-- the iframe where music video is imbedded -->
-    <iframe id="video-frame"></iframe>
-
-
-
-
-    <div class="uk-child-width-1-4@m uk-grid-small uk-grid-match" uk-grid>
-        <div>  
-            <div class="uk-card uk-card-default uk-card-hover uk-card-body">
-                <button class="uk-button uk-button-default suggestionBtn1">
-                <h3 class="uk-card-title songSuggestion1"></h3>
-                </button>
+            <!--------------------------------- YouTube video section --------------------------------->
+            <div class="videoDiv">
+                <div uk-grid>
+                    <div uk-width-auto>
+                        <div class="uk-card uk-card-default uk-card-body">
+                            <!-- src provided dynamically -->
+                            <iframe id="current-vid"
+                                src=""
+                                alt="YouTube video for current song"
+                                width="1920" height="1080" allowfullscreen uk-responsive uk-video="automute: true"
+                                style="border: solid 2px #29a329">
+                            </iframe>
+                        </div>
+                    </div>
+                </div>
             </div>
-        </div>
-        <div>
-            <div class="uk-card uk-card-default uk-card-hover uk-card-body">
-                <button class="uk-button uk-button-default suggestionBtn2">
-                    <h3 class="uk-card-title songSuggestion2"></h3>
-                    </button>
+          <!-- ----------------------------------------------------------------------------------- -->
+    
+            <div class="relatedVideoDiv">
+    
+                <div class="uk-child-width-1-4@m uk-grid-small uk-grid-match" uk-grid>
+                    <div>  
+                        <div class="uk-card uk-card-default uk-card-hover uk-card-body">
+                            <button class="uk-button uk-button-default suggestionBtn1">
+                                <h3 class="uk-card-title songSuggestion1"></h3>
+                            </button>
+                        </div>
+                    </div>
+                    <div>
+                        <div class="uk-card uk-card-default uk-card-hover uk-card-body">
+                            <button class="uk-button uk-button-default suggestionBtn2">
+                                <h3 class="uk-card-title songSuggestion2"></h3>
+                            </button>
+                        </div>
+                    </div>
+                    <div>
+                        <div class="uk-card uk-card-default uk-card-hover uk-card-body">
+                            <button class="uk-button uk-button-default suggestionBtn3">
+                                <h3 class="uk-card-title songSuggestion3"></h3>
+                            </button>
+                        </div>
+                    </div>
+                    <div>
+                        <div class="uk-card uk-card-default uk-card-hover uk-card-body">
+                            <button class="uk-button uk-button-default suggestionBtn4">
+                                <h3 class="uk-card-title songSuggestion4"></h3>
+                            </button>
+                        </div>
+                   </div>
+               </div>
             </div>
+
         </div>
-        <div>
-            <div class="uk-card uk-card-default uk-card-hover uk-card-body">
-                <button class="uk-button uk-button-default suggestionBtn3">
-                    <h3 class="uk-card-title songSuggestion3"></h3>
-                    </button>
-            </div>
-        </div>
-        <div>
-            <div class="uk-card uk-card-default uk-card-hover uk-card-body">
-                <button class="uk-button uk-button-default suggestionBtn4">
-                    <h3 class="uk-card-title songSuggestion4"></h3>
-                    </button>
-            </div>
-        </div>
+      
     </div>
 
     <script type="text/javascript" src="app.js"></script>
