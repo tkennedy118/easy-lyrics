@@ -1,6 +1,8 @@
 $(document).ready(function() {
 
     var vidId;
+    var artistG = "";
+    var titleG = "";
 
     $('.results').hide();
 
@@ -8,8 +10,8 @@ $(document).ready(function() {
 
         $('.results').show();
 
-        var artist = $('#artistInput').val();
-        var title = $('#songInput').val();
+        artist = $('#artistInput').val();
+        title = $('#songInput').val();
 
         var queryURL = "https://private-anon-a847fd9858-lyricsovh.apiary-proxy.com/v1/" + artist + "/" + title;
 
@@ -18,9 +20,12 @@ $(document).ready(function() {
             method: "GET",
             success: function(response){
                 $('.lyricsTextDiv').text (response.lyrics);
+                artistG = artist;
+                titleG = title;
             },
             error: function(){
                 $('.lyricsTextDiv').text ("Song not found.");
+
             }
           });
     });
