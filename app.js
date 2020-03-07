@@ -69,6 +69,8 @@ $(document).ready(function() {
 
         currentVid.attr("src", source);
     }
+
+    showYouTubeVideo();
     
     /********************************************************************************************* */
     
