@@ -60,21 +60,21 @@
     
             <!--------------------------------- YouTube video section --------------------------------->
             <div uk-grid class="videoDiv">
-                <div uk-width-auto>
-                    <div class="uk-card uk-card-default uk-card-body">
+                <div uk-width-1-1>
+                    <div class="uk-card uk-card-default uk-card-body" uk-scrollspy="cls: uk-animation-fade; delay: 200; repeat: true">
 
                         <!-- src provided dynamically -->
-                        <iframe id="current-vid"
+                        <iframe  allowfullscreen uk-responsive id="current-vid"
                             src=""
                             alt="YouTube video for current song"
-                            width="1920" height="1080" allowfullscreen uk-responsive uk-video="automute: true"
+                            width="1920" height="1080"
                             style="border: solid 2px #29a329">
                         </iframe>
                         
                     </div>
                 </div>
             </div>
-          <!-- ----------------------------------------------------------------------------------- -->
+            <!-- ----------------------------------------------------------------------------------- -->
     
             <div class="relatedVideoDiv">
     
