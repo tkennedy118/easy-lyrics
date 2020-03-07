@@ -1,54 +1,47 @@
 $(document).ready(function() {
 
-    var vidId;
-    var artistG = "";
-    var titleG = "";
 
-    $('.results').hide();
+    /***************************************** FUNCTIONS *****************************************/
 
-    /****************************** VARIABLES related to YouTube API ******************************/
+    // FUNCTION: requests lyric info from API
+    const getSongInfo = function() {
 
-    var youtubeVidId;                                           // id of specific video on youtube
-    var player;                                                 // YouTube Player object
+        let artist = $('#artistInput').val();
+        let title = $('#songInput').val();
 
-    /**********************************************************************************************/
-
-
-
-    $('.searchButton').click(function () {
-
-        $('.results').show();
-
-        artist = $('#artistInput').val();
-        title = $('#songInput').val();
-
-        var queryURL = "https://private-anon-a847fd9858-lyricsovh.apiary-proxy.com/v1/" + artist + "/" + title;
+        let queryURL = "https://private-anon-a847fd9858-lyricsovh.apiary-proxy.com/v1/" + artist + "/" + title;
 
         $.ajax({
             url: queryURL,
             method: "GET",
             success: function(response){
+
                 $('.lyricsTextDiv').text (response.lyrics);
-                artistG = artist;
-                titleG = title;
+                $('.results').show();
+                $('.noresult').hide();
+
+                // get video information
+                // getYouTubeVideo(artist, title);
             },
             error: function(){
-                $('.lyricsTextDiv').text ("Song not found.");
 
+                $('.lyricsTextDiv').text ("Song not found.");
+                $('.results').hide();
+                $('.no-results').show();
             }
           });
-    });
-    
+    }
 
     /************************* FUNCTIONS related to YouTube functionality *************************/
 
     // // FUNCTION: requests video from YouTube API
-    // const getYouTubeVideo = function() {
+    // const getYouTubeVideo = function(artist, title) {
         
     //     // local variables
     //     let key = "AIzaSyC9UX0aa1EBEDw0181Q2V3ljFoq0cGBbNI";
-    //     let search = encodeURI("Taylor Swift" + " music video");
+    //     let search = encodeURI(artist + " " + title + " music video");
     //     let queryURL = "HTTPS://www.googleapis.com/youtube/v3/search?part=snippet&maxResults=1&q=" + search + "&key=" + key;
+    //     let youtubeVidId = "";
 
 
     //     // request info from YouTube API
@@ -60,12 +53,12 @@ $(document).ready(function() {
     //             youtubeVidId = response.items[0].id.videoId;
     //             console.log(youtubeVidId)
 
-    //             showYouTubeVideo();
+    //             showYouTubeVideo(youtubeVidId);
     //         });
     // }
 
 
-    const showYouTubeVideo = function() {
+    const showYouTubeVideo = function(youtubeVidId) {
 
         // local variables
         let currentVid = $("#current-vid");
@@ -108,6 +101,14 @@ $(document).ready(function() {
             });
     });
 
-    // getYouTubeVideo();
-    showYouTubeVideo();
+
+    /****************************** EVENT HANDLERS AND FUNCTION CALLS ******************************/
+
+    $('.results').hide();       // show if lyrics are found
+    $('.no-results').hide();    // show if lyrics are not found
+
+    $(".searchButton").on("click", function() {
+
+        getSongInfo();
+    });
 });
