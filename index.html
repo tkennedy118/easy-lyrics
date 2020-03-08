@@ -58,88 +58,80 @@
             </div>
         </div>
 
+        <div class="uk-section uk-section-secondary" id="no-results">
+            <div class="uk-container uk-padding-large">
 
-        <div class="uk-section uk-section-default" id="no-results">
-            <div class="uk-container">
-
-                <div class="lyricsTextDiv">
-                    <p class="lyricsText"></p>
+                <div class="lyricsTextDiv" uk-scrollspy="cls: uk-animation-fade; delay: 100; repeat: true">
+                    <p class="lyricsText uk-text-center"></p>
                 </div>
 
             </div>
         </div>
 
-        <main id="results">
-            <div class="uk-section uk-section-default">
-                <div class="uk-container">
-                    <!------------------------------------ Lyrics section ------------------------------------->
-                    <div class="uk-grid-small" uk-grid>
-                        
-                        <div class="lyricsTextDiv uk-card uk-card-default uk-card-hover uk-card-body" uk-scrollspy="cls: uk-animation-fade; delay: 200; repeat: true">
-                            <p class="lyricsText"></p>
-                        </div>
+        <div class="uk-section uk-section-secondary">
+            <div class="uk-container uk-padding-large">
+                <!------------------------------------ Lyrics section ------------------------------------->
+                <div class="lyricsTextDiv" uk-scrollspy="cls: uk-animation-fade; delay: 100; repeat: true">
+                    <p class="lyricsText uk-text-center"></p>
+                </div>
+                <!-- ----------------------------------------------------------------------------------- -->
+            </div>
+        </div>
 
+        <div class="uk-section uk-section-default uk-text-center uk-text-primary">
+            <div class="uk-container">
+
+                <div class="uk-grid-small uk-child-width-1-2@l uk-grid-match" uk-grid>
+                    <!--------------------------------- YouTube video section --------------------------------->
+                    <div id="videoDiv">
+                        <div class="uk-card uk-card-default uk-card-body">
+    
+                            <!-- src provided dynamically -->
+                            <iframe  allowfullscreen uk-responsive id="current-vid"
+                                src=""
+                                alt="YouTube video for current song"
+                                width="1920" height="1080"
+                                style="border: solid 2px #29a329">
+                            </iframe>
+                            
+                        </div>
+                    </div>
+                    <!-- ----------------------------------------------------------------------------------- -->
+                    
+                    <!-------------------------------- Related videos section --------------------------------->
+                    <div id="relatedVideoDiv">
+            
+                        <div class="uk-child-width-1-2@l uk-child-width-1-4@m uk-grid-collapse uk-grid-match" uk-grid>
+                            <div>  
+                                <div class="uk-card uk-card-default uk-card-hover uk-card-body" uk-scrollspy="cls: uk-animation-slide-left; delay: 100; repeat: true">
+                                    <p class="uk-button uk-button-text suggestionBtn uk-text-primary" id="songSuggestion1"></p>
+                                </div>
+                            </div>
+                            <div>
+                                <div class="uk-card uk-card-default uk-card-hover uk-card-body" uk-scrollspy="cls: uk-animation-slide-left; delay: 150; repeat: true">
+                                    <button class="uk-button uk-button-text suggestionBtn" id="songSuggestion2">
+                                    </button>
+                                </div>
+                            </div>
+                            <div>
+                                <div class="uk-card uk-card-default uk-card-hover uk-card-body" uk-scrollspy="cls: uk-animation-slide-left; delay: 200; repeat: true">
+                                    <button class="uk-button uk-button-text suggestionBtn" id="songSuggestion3">
+                                    </button>
+                                </div>
+                            </div>
+                            <div>
+                                <div class="uk-card uk-card-default uk-card-hover uk-card-body" uk-scrollspy="cls: uk-animation-slide-left; delay: 250; repeat: true">
+                                    <button class="uk-button uk-button-text suggestionBtn" id="songSuggestion4">
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                     <!-- ----------------------------------------------------------------------------------- -->
                 </div>
             </div>
 
-            <div class="uk-section uk-section-primary">
-                <div class="uk-container">
-
-                    <div class="uk-grid-small uk-child-width-1-2@l uk-grid-match" uk-grid>
-                        <!--------------------------------- YouTube video section --------------------------------->
-                        <div id="videoDiv">
-                            <div class="uk-card uk-card-default uk-card-body">
-        
-                                <!-- src provided dynamically -->
-                                <iframe  allowfullscreen uk-responsive id="current-vid"
-                                    src=""
-                                    alt="YouTube video for current song"
-                                    width="1920" height="1080"
-                                    style="border: solid 2px #29a329">
-                                </iframe>
-                                
-                            </div>
-                        </div>
-                        <!-- ----------------------------------------------------------------------------------- -->
-                        
-                        <!-------------------------------- Related videos section --------------------------------->
-                        <div id="relatedVideoDiv">
-                
-                            <div class="uk-child-width-1-2@l uk-child-width-1-4@m uk-grid-collapse uk-grid-match" uk-grid>
-                                <div>  
-                                    <div class="uk-card uk-card-default uk-card-hover uk-card-body" uk-scrollspy="cls: uk-animation-slide-left; delay: 100; repeat: true">
-                                        <button class="uk-button uk-button-default suggestionBtn1" id="songSuggestion1">
-                                        </button>
-                                    </div>
-                                </div>
-                                <div>
-                                    <div class="uk-card uk-card-default uk-card-hover uk-card-body" uk-scrollspy="cls: uk-animation-slide-left; delay: 150; repeat: true">
-                                        <button class="uk-button uk-button-default suggestionBtn2" id="songSuggestion2">
-                                        </button>
-                                    </div>
-                                </div>
-                                <div>
-                                    <div class="uk-card uk-card-default uk-card-hover uk-card-body" uk-scrollspy="cls: uk-animation-slide-left; delay: 200; repeat: true">
-                                        <button class="uk-button uk-button-default suggestionBtn3" id="songSuggestion3">
-                                        </button>
-                                    </div>
-                                </div>
-                                <div>
-                                    <div class="uk-card uk-card-default uk-card-hover uk-card-body" uk-scrollspy="cls: uk-animation-slide-left; delay: 250; repeat: true">
-                                        <button class="uk-button uk-button-default suggestionBtn4" id="songSuggestion4">
-                                        </button>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- ----------------------------------------------------------------------------------- -->
-                    </div>
-                </div>
-
-            </div>
-        </main>
+        </div>
 
     <script type="text/javascript" src="app.js"></script>
 </body>

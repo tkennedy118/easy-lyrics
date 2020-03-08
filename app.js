@@ -6,8 +6,6 @@ $(document).ready(function() {
     // FUNCTION: requests lyric info from API
     const getSongInfo = function() {
 
-        console.log("inside getSongInfo");
-
         let artist = $('#artistInput').val();
         let title = $('#songInput').val();
 
@@ -18,18 +16,17 @@ $(document).ready(function() {
             method: "GET",
             success: function(response){
 
-                console.log("inside success");
-
-                $('.lyricsTextDiv').text (response.lyrics);
+                $('.lyricsText').text(response.lyrics);
                 $('#results').show();
                 $('#no-results').hide();
 
                 // get video information
                 // getYouTubeVideo(artist, title);
+
+                // get related videos
+                showRelated(artist);
             },
             error: function(){
-
-                console.log("inside error");
 
                 $('.lyricsTextDiv').text ("Song not found.");
                 $('#results').hide();
@@ -75,34 +72,60 @@ $(document).ready(function() {
     
     /********************************************************************************************* */
     
-    
-    var searchlyURL = "https://searchly.asuarez.dev/api/v1/song/search" + "?query=" + encodeURI("Beatles");
-    $.ajax({
-        url: searchlyURL,
-        method: "GET"
-    }).then(function(response) {
-        let songSug = response.response.results;
+    // FUNCTION: get related songs 
+    const showRelated = function(artist) {
 
-            songSug.forEach((element,index) => {
+        var searchlyURL = "https://searchly.asuarez.dev/api/v1/song/search" + "?query=" + encodeURI("beatles");
+
+        $.ajax( {
+            url: searchlyURL,
+            method: "GET"
+        }).then(function(response) {
+
+            let songSug = response.response.results;
+            let max = songSug.length;
+
+            // give each button a random song
+            $('.suggestionBtn').each(function() {
+                
+                let random = Math.floor(Math.random() * max);
+                let [songArtist, songName] = songSug[random].name.split(' - ');
+
+                // adjust song artist name to compensate for things like "beatles, the"
+                songArtist = songArtist.replace(", the", "");
+
+                $(this).text((songArtist + ": " + songName).toUpperCase());
+            });
+        });
+    }
+
+
+    // $.ajax({
+    //     url: searchlyURL,
+    //     method: "GET"
+    // }).then(function(response) {
+    //     let songSug = response.response.results;
+
+    //         songSug.forEach((element,index) => {
 
                 
-                let [songArtist, songName] = element.name.split(' - ');
-                //console.log(element.name);
-                console.log(songArtist);
-                $(`#songSuggestion${index+1}`).text(JSON.stringify(songArtist + " - " + songName));
+    //             let [songArtist, songName] = element.name.split(' - ');
+    //             //console.log(element.name);
+    //             console.log(songArtist);
+    //             $(`#songSuggestion${index+1}`).text(JSON.stringify(songArtist + " - " + songName));
     
-                $('#suggestionBtn').on('click', function() {
-                    console.log(songArtist);
+    //             $('#suggestionBtn').on('click', function() {
+    //                 console.log(songArtist);
     
-                 let artistInput = $('#artistInput');
-                 let songInput = $('#songInput');
+    //              let artistInput = $('#artistInput');
+    //              let songInput = $('#songInput');
     
-                 artistInput.val(artistInput.val() + songArtist);
-                 songInput.val(songInput.val() + songName);
+    //              artistInput.val(artistInput.val() + songArtist);
+    //              songInput.val(songInput.val() + songName);
         
-                });
-            });
-    });
+    //             });
+    //         });
+    // });
 
 
     /****************************** EVENT HANDLERS AND FUNCTION CALLS ******************************/
