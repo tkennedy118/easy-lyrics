@@ -25,42 +25,55 @@
     </head>
 <body>
 
-    <header>
-        <h1>Easy Lyrics</h1>
-    </header>
+    <div class="uk-container">
 
-    <div class="mainDiv">
-
-        <div class="instructions">
-            <p>Instructions/Intro</p>
-        </div>
+        <header>
+            <h1 class="uk-heading-line uk-text-center"><span>Easy Lyrics</span></h1>
+        </header>
 
         <div class="inputDiv">
-            <form>
-                <label for="artist">Artist:</label><br>
-                <input type="text" id="artistInput" name="artist"><br>
-                <label for="song">Song Title:</label><br>
-                <input type="text" id="songInput" name="song">
+            <!----------------------------------- Form input section ----------------------------------->
+            <form class="uk-grid-small" uk-grid>
+                <div class="uk-width-1-2@s">
+                    <input class="uk-input" type="text" id="artistInput" placeholder="Artist name" />
+                </div>
+                <div class="uk-width-1-2@s">
+                    <input class="uk-input" type="text" id="songInput" placeholder="Song title" />
+                </div>
+
+                <div class="uk-width-1-1">
+                    <button class="uk-button uk-button-default uk-width-1-1 uk-margin-small-bottom" id="searchButton">Get Lyrics</button>
+                </div>
             </form>
-
-            <button class="searchButton">Search</button>
+            <!-- ----------------------------------------------------------------------------------- -->
         </div>
 
-        <div class="no-results">
-            <div class="lyricsTextDiv">
+        <div class="uk-grid-small" id="no-results" uk-grid>
+
+            <div class="lyricsTextDiv uk-column-1-1">
                 <p class="lyricsText"></p>
             </div>
+
         </div>
 
-        <main class="results">
+        <main id="results">
 
-            <div class="lyricsTextDiv">
-                <p class="lyricsText"></p>
+            <!------------------------------------ Lyrics section ------------------------------------->
+            <div class="uk-grid-small" uk-grid>
+                
+                <div class="lyricsTextDiv">
+                    <p class="lyricsText"></p>
+                </div>
+
             </div>
+            <!-- ----------------------------------------------------------------------------------- -->
+
+
     
-            <!--------------------------------- YouTube video section --------------------------------->
-            <div uk-grid class="videoDiv">
-                <div uk-width-1-1>
+            <div class="uk-grid-small uk-child-width-1-2@l uk-grid-match" uk-grid>
+                
+                <!--------------------------------- YouTube video section --------------------------------->
+                <div id="videoDiv">
                     <div class="uk-card uk-card-default uk-card-body" uk-scrollspy="cls: uk-animation-fade; delay: 200; repeat: true">
 
                         <!-- src provided dynamically -->
@@ -73,41 +86,44 @@
                         
                     </div>
                 </div>
-            </div>
-            <!-- ----------------------------------------------------------------------------------- -->
-    
-            <div class="relatedVideoDiv">
-    
-                <div class="uk-child-width-1-4@m uk-grid-small uk-grid-match" uk-grid>
-                    <div>  
-                        <div class="uk-card uk-card-default uk-card-hover uk-card-body">
-                            <button class="uk-button uk-button-default suggestionBtn1">
-                                <h3 class="uk-card-title songSuggestion1"></h3>
-                            </button>
+                <!-- ----------------------------------------------------------------------------------- -->
+
+
+                <!-------------------------------- Related videos section --------------------------------->
+                <div id="relatedVideoDiv">
+        
+                    <div class="uk-child-width-1-2@l uk-child-width-1-4@m uk-grid-small uk-grid-match" uk-grid>
+                        <div>  
+                            <div class="uk-card uk-card-default uk-card-hover uk-card-body">
+                                <button class="uk-button uk-button-default suggestionBtn1">
+                                    <h3 class="uk-card-title songSuggestion1"></h3>
+                                </button>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="uk-card uk-card-default uk-card-hover uk-card-body">
+                                <button class="uk-button uk-button-default suggestionBtn2">
+                                    <h3 class="uk-card-title songSuggestion2"></h3>
+                                </button>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="uk-card uk-card-default uk-card-hover uk-card-body">
+                                <button class="uk-button uk-button-default suggestionBtn3">
+                                    <h3 class="uk-card-title songSuggestion3"></h3>
+                                </button>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="uk-card uk-card-default uk-card-hover uk-card-body">
+                                <button class="uk-button uk-button-default suggestionBtn4">
+                                    <h3 class="uk-card-title songSuggestion4"></h3>
+                                </button>
+                            </div>
                         </div>
                     </div>
-                    <div>
-                        <div class="uk-card uk-card-default uk-card-hover uk-card-body">
-                            <button class="uk-button uk-button-default suggestionBtn2">
-                                <h3 class="uk-card-title songSuggestion2"></h3>
-                            </button>
-                        </div>
-                    </div>
-                    <div>
-                        <div class="uk-card uk-card-default uk-card-hover uk-card-body">
-                            <button class="uk-button uk-button-default suggestionBtn3">
-                                <h3 class="uk-card-title songSuggestion3"></h3>
-                            </button>
-                        </div>
-                    </div>
-                    <div>
-                        <div class="uk-card uk-card-default uk-card-hover uk-card-body">
-                            <button class="uk-button uk-button-default suggestionBtn4">
-                                <h3 class="uk-card-title songSuggestion4"></h3>
-                            </button>
-                        </div>
-                   </div>
-               </div>
+                </div>
+                <!-- ----------------------------------------------------------------------------------- -->
             </div>
         </main>
 

@@ -6,6 +6,8 @@ $(document).ready(function() {
     // FUNCTION: requests lyric info from API
     const getSongInfo = function() {
 
+        console.log("inside getSongInfo");
+
         let artist = $('#artistInput').val();
         let title = $('#songInput').val();
 
@@ -16,18 +18,22 @@ $(document).ready(function() {
             method: "GET",
             success: function(response){
 
+                console.log("inside success");
+
                 $('.lyricsTextDiv').text (response.lyrics);
-                $('.results').show();
-                $('.noresult').hide();
+                $('#results').show();
+                $('#no-results').hide();
 
                 // get video information
                 // getYouTubeVideo(artist, title);
             },
             error: function(){
 
+                console.log("inside error");
+
                 $('.lyricsTextDiv').text ("Song not found.");
-                $('.results').hide();
-                $('.no-results').show();
+                $('#results').hide();
+                $('#no-results').show();
             }
           });
     }
@@ -101,10 +107,13 @@ $(document).ready(function() {
 
     /****************************** EVENT HANDLERS AND FUNCTION CALLS ******************************/
 
-    $('.results').hide();       // show if lyrics are found
-    $('.no-results').hide();    // show if lyrics are not found
+    $('#results').hide();       // show if lyrics are found
+    $('#no-results').hide();    // show if lyrics are not found
 
-    $(".searchButton").on("click", function() {
+    $("#searchButton").on("click", function(event) {
+
+        // prevent page reload
+        event.preventDefault();
 
         getSongInfo();
     });
