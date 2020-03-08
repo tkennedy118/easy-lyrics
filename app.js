@@ -100,34 +100,6 @@ $(document).ready(function() {
     }
 
 
-    // $.ajax({
-    //     url: searchlyURL,
-    //     method: "GET"
-    // }).then(function(response) {
-    //     let songSug = response.response.results;
-
-    //         songSug.forEach((element,index) => {
-
-                
-    //             let [songArtist, songName] = element.name.split(' - ');
-    //             //console.log(element.name);
-    //             console.log(songArtist);
-    //             $(`#songSuggestion${index+1}`).text(JSON.stringify(songArtist + " - " + songName));
-    
-    //             $('#suggestionBtn').on('click', function() {
-    //                 console.log(songArtist);
-    
-    //              let artistInput = $('#artistInput');
-    //              let songInput = $('#songInput');
-    
-    //              artistInput.val(artistInput.val() + songArtist);
-    //              songInput.val(songInput.val() + songName);
-        
-    //             });
-    //         });
-    // });
-
-
     /****************************** EVENT HANDLERS AND FUNCTION CALLS ******************************/
 
     $('#results').hide();       // show if lyrics are found
@@ -137,6 +109,23 @@ $(document).ready(function() {
 
         // prevent page reload
         event.preventDefault();
+
+        getSongInfo();
+    });
+
+
+    $(".suggestionBtn").on("click", function() {
+
+        // get artist and name
+        let [artist, song] = $(this).text().split(": ");
+
+        // set input values
+        $("#artistInput").val(artist);
+        $("#songInput").val(song);
+
+        // set text values
+        $("#artistInput").text(artist);
+        $("#songInput").text(song);
 
         getSongInfo();
     });
