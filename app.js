@@ -28,7 +28,7 @@ $(document).ready(function() {
             },
             error: function(){
 
-                $('.lyricsTextDiv').text ("Song not found.");
+                $('.lyricsText').text ("Song not found.");
                 $('#results').hide();
                 $('#no-results').show();
             }
@@ -75,7 +75,10 @@ $(document).ready(function() {
     // FUNCTION: get related songs 
     const showRelated = function(artist) {
 
-        var searchlyURL = "https://searchly.asuarez.dev/api/v1/song/search" + "?query=" + encodeURI("beatles");
+        // remove "the" and , from title names to optimize search
+        artist = artist.replace(/the|\,/gi, "");
+
+        var searchlyURL = "https://searchly.asuarez.dev/api/v1/song/search" + "?query=" + encodeURI(artist);
 
         $.ajax( {
             url: searchlyURL,
