@@ -4,6 +4,10 @@
     padding: 0;
 }
 
+#footer {
+    box-shadow: 0 50vh 0 50vh #222;
+}
+
 /* #relatedVidoeDiv {
     font-size: 2em;
     color: #333;
