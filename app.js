@@ -89,9 +89,9 @@ $(document).ready(function() {
                 let [songArtist, songName] = element.name.split(' - ');
                 //console.log(element.name);
                 console.log(songArtist);
-                $(`.songSuggestion${index+1}`).text(JSON.stringify(songArtist + " - " + songName));
+                $(`#songSuggestion${index+1}`).text(JSON.stringify(songArtist + " - " + songName));
     
-                $('.suggestionBtn1').on('click', function() {
+                $('#suggestionBtn').on('click', function() {
                     console.log(songArtist);
     
                  let artistInput = $('#artistInput');

@@ -4,7 +4,11 @@
     padding: 0;
 }
 
-
+#relatedVidoeDiv {
+    font-size: 2em;
+    color: #333;
+    text-align: center;
+} 
 
 /* body {
     height: 100%;
@@ -61,11 +65,3 @@ h1 {
     margin-left: auto;
     margin-right: auto;
 }  */
-
-/* #relatedVidoeDiv {
-    width: 85%;
-    margin: auto;
-    background-color: #666666;
-    text-align: center;
-    margin-top: 20px;
-} */ 
