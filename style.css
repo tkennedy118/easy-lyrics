@@ -1,4 +1,16 @@
-body {
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+#relatedVidoeDiv {
+    font-size: 2em;
+    color: #333;
+    text-align: center;
+} 
+
+/* body {
     height: 100%;
     background-image: linear-gradient(#4d4d4d, #262626);
     background-attachment: fixed;
@@ -17,18 +29,13 @@ h1 {
     color: white;
 }
 
-.instructions {
-    padding: 3px;
-    text-align: center;
-}
-
 .inputDiv {
     padding: 10px;
     background-color: #666666;
     text-align: center;
 }
 
-.searchButton {
+#searchButton {
     background-color: #29a329;
     border-style: solid;
     border-color: #29a329;
@@ -47,7 +54,7 @@ h1 {
     margin-top: 25px;
 }
 
-.videoDiv {
+#videoDiv {
     border-top: 4px solid #000;
     border-bottom: 4px solid #000;
 } 
@@ -58,11 +65,3 @@ h1 {
     margin-left: auto;
     margin-right: auto;
 }  */
-
-.relatedVidoeDiv {
-    width: 85%;
-    margin: auto;
-    background-color: #666666;
-    text-align: center;
-    margin-top: 20px;
-}

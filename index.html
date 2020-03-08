@@ -5,8 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
 
+    <!-- custom styles -->
     <link rel="stylesheet" href="style.css">
-
     
     <!-- jQuery -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
@@ -25,93 +25,121 @@
     </head>
 <body>
 
-    <header>
-        <h1>Easy Lyrics</h1>
-    </header>
+        <div class="uk-section uk-section-default">
+            <div class="uk-container">
 
-    <div class="mainDiv">
+                <header>
+                    <h1 class="uk-heading-line uk-text-center"><span>Easy Lyrics</span></h1>
+                </header>
 
-        <div class="instructions">
-            <p>Instructions/Intro</p>
-        </div>
-
-        <div class="inputDiv">
-            <form>
-                <label for="artist">Artist:</label><br>
-                <input type="text" id="artistInput" name="artist"><br>
-                <label for="song">Song Title:</label><br>
-                <input type="text" id="songInput" name="song">
-            </form>
-
-            <button class="searchButton">Search</button>
-        </div>
-
-        <div class="no-results">
-            <div class="lyricsTextDiv">
-                <p class="lyricsText"></p>
             </div>
         </div>
 
-        <main class="results">
+        <div class="uk-section uk-section-primary">
+            <div class="uk-container">
 
-            <div class="lyricsTextDiv">
-                <p class="lyricsText"></p>
+                <div class="inputDiv">
+                    <!----------------------------------- Form input section ----------------------------------->
+                    <form class="uk-grid-small" uk-grid>
+                        <div class="uk-width-1-2@s">
+                            <input class="uk-input" type="text" id="artistInput" placeholder="Artist name" />
+                        </div>
+                        <div class="uk-width-1-2@s">
+                            <input class="uk-input" type="text" id="songInput" placeholder="Song title" />
+                        </div>
+        
+                        <div class="uk-width-1-1">
+                            <button class="uk-button uk-button-default uk-width-1-1 uk-margin-small-bottom" id="searchButton">Get Lyrics</button>
+                        </div>
+                    </form>
+                    <!-- ----------------------------------------------------------------------------------- -->
+                </div>
+
             </div>
-    
-            <!--------------------------------- YouTube video section --------------------------------->
-            <div uk-grid class="videoDiv">
-                <div uk-width-1-1>
-                    <div class="uk-card uk-card-default uk-card-body" uk-scrollspy="cls: uk-animation-fade; delay: 200; repeat: true">
+        </div>
 
-                        <!-- src provided dynamically -->
-                        <iframe  allowfullscreen uk-responsive id="current-vid"
-                            src=""
-                            alt="YouTube video for current song"
-                            width="1920" height="1080"
-                            style="border: solid 2px #29a329">
-                        </iframe>
+
+        <div class="uk-section uk-section-default" id="no-results">
+            <div class="uk-container">
+
+                <div class="lyricsTextDiv">
+                    <p class="lyricsText"></p>
+                </div>
+
+            </div>
+        </div>
+
+        <main id="results">
+            <div class="uk-section uk-section-default">
+                <div class="uk-container">
+                    <!------------------------------------ Lyrics section ------------------------------------->
+                    <div class="uk-grid-small" uk-grid>
                         
+                        <div class="lyricsTextDiv uk-card uk-card-default uk-card-hover uk-card-body" uk-scrollspy="cls: uk-animation-fade; delay: 200; repeat: true">
+                            <p class="lyricsText"></p>
+                        </div>
+
                     </div>
+                    <!-- ----------------------------------------------------------------------------------- -->
                 </div>
             </div>
-            <!-- ----------------------------------------------------------------------------------- -->
-    
-            <div class="relatedVideoDiv">
-    
-                <div class="uk-child-width-1-4@m uk-grid-small uk-grid-match" uk-grid>
-                    <div>  
-                        <div class="uk-card uk-card-default uk-card-hover uk-card-body">
-                            <button class="uk-button uk-button-default suggestionBtn1">
-                                <h3 class="uk-card-title songSuggestion1"></h3>
-                            </button>
+
+            <div class="uk-section uk-section-primary">
+                <div class="uk-container">
+
+                    <div class="uk-grid-small uk-child-width-1-2@l uk-grid-match" uk-grid>
+                        <!--------------------------------- YouTube video section --------------------------------->
+                        <div id="videoDiv">
+                            <div class="uk-card uk-card-default uk-card-body">
+        
+                                <!-- src provided dynamically -->
+                                <iframe  allowfullscreen uk-responsive id="current-vid"
+                                    src=""
+                                    alt="YouTube video for current song"
+                                    width="1920" height="1080"
+                                    style="border: solid 2px #29a329">
+                                </iframe>
+                                
+                            </div>
                         </div>
+                        <!-- ----------------------------------------------------------------------------------- -->
+                        
+                        <!-------------------------------- Related videos section --------------------------------->
+                        <div id="relatedVideoDiv">
+                
+                            <div class="uk-child-width-1-2@l uk-child-width-1-4@m uk-grid-collapse uk-grid-match" uk-grid>
+                                <div>  
+                                    <div class="uk-card uk-card-default uk-card-hover uk-card-body" uk-scrollspy="cls: uk-animation-slide-left; delay: 100; repeat: true">
+                                        <button class="uk-button uk-button-default suggestionBtn1" id="songSuggestion1">
+                                        </button>
+                                    </div>
+                                </div>
+                                <div>
+                                    <div class="uk-card uk-card-default uk-card-hover uk-card-body" uk-scrollspy="cls: uk-animation-slide-left; delay: 150; repeat: true">
+                                        <button class="uk-button uk-button-default suggestionBtn2" id="songSuggestion2">
+                                        </button>
+                                    </div>
+                                </div>
+                                <div>
+                                    <div class="uk-card uk-card-default uk-card-hover uk-card-body" uk-scrollspy="cls: uk-animation-slide-left; delay: 200; repeat: true">
+                                        <button class="uk-button uk-button-default suggestionBtn3" id="songSuggestion3">
+                                        </button>
+                                    </div>
+                                </div>
+                                <div>
+                                    <div class="uk-card uk-card-default uk-card-hover uk-card-body" uk-scrollspy="cls: uk-animation-slide-left; delay: 250; repeat: true">
+                                        <button class="uk-button uk-button-default suggestionBtn4" id="songSuggestion4">
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- ----------------------------------------------------------------------------------- -->
                     </div>
-                    <div>
-                        <div class="uk-card uk-card-default uk-card-hover uk-card-body">
-                            <button class="uk-button uk-button-default suggestionBtn2">
-                                <h3 class="uk-card-title songSuggestion2"></h3>
-                            </button>
-                        </div>
-                    </div>
-                    <div>
-                        <div class="uk-card uk-card-default uk-card-hover uk-card-body">
-                            <button class="uk-button uk-button-default suggestionBtn3">
-                                <h3 class="uk-card-title songSuggestion3"></h3>
-                            </button>
-                        </div>
-                    </div>
-                    <div>
-                        <div class="uk-card uk-card-default uk-card-hover uk-card-body">
-                            <button class="uk-button uk-button-default suggestionBtn4">
-                                <h3 class="uk-card-title songSuggestion4"></h3>
-                            </button>
-                        </div>
-                   </div>
-               </div>
+                </div>
+
             </div>
         </main>
-
-    </div>
 
     <script type="text/javascript" src="app.js"></script>
 </body>
