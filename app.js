@@ -9,6 +9,9 @@ $(document).ready(function() {
         let artist = $('#artistInput').val();
         let title = $('#songInput').val();
 
+        console.log("artist: " + artist);
+        console.log("title: " + title);
+
         let queryURL = "https://private-anon-a847fd9858-lyricsovh.apiary-proxy.com/v1/" + artist + "/" + title;
 
         $.ajax({
@@ -17,7 +20,10 @@ $(document).ready(function() {
             success: function(response){
 
                 // split lyrics by , and .
-                let lyricsArr = response.lyrics.split(/\.|\,/);
+                let lyricsArr = response.lyrics.split(/\.|\?|\!|\,/);
+
+                // clear current fields
+                $('.lyricsText').empty();
 
                 // insert lyrics
                 lyricsArr.forEach(function(line, index) {
