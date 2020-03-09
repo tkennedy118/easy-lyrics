@@ -16,7 +16,21 @@ $(document).ready(function() {
             method: "GET",
             success: function(response){
 
-                $('.lyricsText').text(response.lyrics);
+                // split lyrics by , and .
+                let lyricsArr = response.lyrics.split(/\.|\,/);
+
+                // insert lyrics
+                lyricsArr.forEach(function(line, index) {
+
+                    let p = $("<p>");
+                    p.text(line);
+
+                    $('.lyricsText').append(p);
+                });
+
+                // insert title
+                $('#song-name').text(title.toUpperCase());
+
                 $('#results').show();
                 $('#no-results').hide();
 
@@ -50,12 +64,8 @@ $(document).ready(function() {
         // request info from YouTube API
         $.ajax({ url: queryURL, method: "GET"})
             .then(function(response) {
-                console.log("inside ajax");
-                console.log(response);
 
                 youtubeVidId = response.items[0].id.videoId;
-                console.log(youtubeVidId)
-
                 showYouTubeVideo(youtubeVidId);
             });
     }

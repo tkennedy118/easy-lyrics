@@ -7,6 +7,9 @@
 
     <!-- custom styles -->
     <link rel="stylesheet" href="style.css">
+
+    <!-- Google fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Julius+Sans+One&display=swap" rel="stylesheet">
     
     <!-- jQuery -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
@@ -29,7 +32,7 @@
             <div class="uk-container">
 
                 <header>
-                    <h1 class="uk-heading-line uk-text-center"><span>Easy Lyrics</span></h1>
+                    <h1 class="uk-heading-line uk-text-center" id="header"><span>Easy Lyrics</span></h1>
                 </header>
 
             </div>
@@ -74,13 +77,14 @@
                 <div class="uk-container uk-padding-large">
                     <!------------------------------------ Lyrics section ------------------------------------->
                     <div class="lyricsTextDiv" uk-scrollspy="cls: uk-animation-fade; delay: 100; repeat: true">
-                        <p class="lyricsText uk-text-center"></p>
+                        <h2 class="uk-text-center uk-margin-bottom" id="song-name"></h2>
+                        <div class="lyricsText uk-text-center"></div>
                     </div>
                     <!-- ----------------------------------------------------------------------------------- -->
                 </div>
             </div>
     
-            <div class="uk-section uk-section-default uk-text-center uk-text-primary">
+            <div class="uk-section uk-section-default uk-background-primary uk-text-center">
                 <div class="uk-container">
     
                     <div class="uk-grid-small uk-child-width-1-2@l uk-grid-match" uk-grid>
