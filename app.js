@@ -9,9 +9,6 @@ $(document).ready(function() {
         let artist = $('#artistInput').val();
         let title = $('#songInput').val();
 
-        console.log("artist: " + artist);
-        console.log("title: " + title);
-
         let queryURL = "https://private-anon-a847fd9858-lyricsovh.apiary-proxy.com/v1/" + artist + "/" + title;
 
         $.ajax({
@@ -112,7 +109,7 @@ $(document).ready(function() {
                 // adjust song artist name to compensate for things like "beatles, the"
                 songArtist = songArtist.replace(", the", "");
 
-                $(this).text((songArtist + ": " + songName).toUpperCase());
+                $(this).text((songArtist + ": " + songName));
             });
         });
     }
