@@ -9,7 +9,7 @@ $(document).ready(function() {
         let artist = $('#artistInput').val();
         let title = $('#songInput').val();
 
-        let queryURL = "https://private-anon-a847fd9858-lyricsovh.apiary-proxy.com/v1/" + artist + "/" + title;
+        let queryURL = "https://api.lyrics.ovh/v1/" + encodeURI(artist) + "/" + encodeURI(title);
 
         $.ajax({
             url: queryURL,
@@ -19,7 +19,7 @@ $(document).ready(function() {
                 // split lyrics by , and .
                 let lyricsArr = response.lyrics.split(/\.|\?|\!|\,/);
 
-                // clear current fields
+                // clear current    fields
                 $('.lyricsText').empty();
 
                 // insert lyrics
@@ -58,9 +58,9 @@ $(document).ready(function() {
     const getYouTubeVideo = function(artist, title) {
         
         // local variables
-        let key = "AIzaSyC9UX0aa1EBEDw0181Q2V3ljFoq0cGBbNI";
+        let key = config.YOUTUBE_API_KEY;
         let search = encodeURI(artist + " " + title + " music video");
-        let queryURL = "HTTPS://www.googleapis.com/youtube/v3/search?part=snippet&maxResults=1&q=" + search + "&key=" + key;
+        let queryURL = "https://www.googleapis.com/youtube/v3/search?part=snippet&maxResults=1&q=" + search + "&key=" + key;
         let youtubeVidId = "";
 
 
