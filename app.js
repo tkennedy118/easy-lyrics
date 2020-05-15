@@ -61,8 +61,6 @@ $(document).ready(function() {
         let key = '';
         $.ajax({ url: '/api/key', method: 'GET' })
             .then(response => {
-                console.log('RESPONSE: ', response);
-
                 if (response) { key = response }
                 else { key = YOUTUBE_API_KEY }
             });
