@@ -1,6 +1,6 @@
 # easy-lyrics
 
-[Link to deployed application](https://tkennedy118.github.io/easy-lyrics/)
+[Link to deployed application](https://hidden-journey-42969.herokuapp.com/)
 
 # Description
 This applicaiton allows users to enter an artist name and song title, then it retrieves the corresponding song lyrics, music video, and related titles. The application utilizes AJAX requests to retrieve information about user inputs. The following APIs are used:
@@ -20,7 +20,9 @@ Once a user inputs a song title, the page either responds with a "cannot find so
 * UIKit
 
 # API Credentials
-The only API that requires authentication is the YouTube Data API. We used API keys (no OAuth 2.0) for this application. The directions for obtaining an API Key are explained [here](https://developers.google.com/youtube/registering_an_application) on YouTube's Data API page. It should be noted that a free API key only has a limited amount of uses per day. Once you have obtained the YouTube API key, add it to your config.js file (example file provided in example.config.js, but should be renamed 'config.js').
+The only API that requires authentication is the YouTube Data API. We used API keys (no OAuth 2.0) for this application. The directions for obtaining an API Key are explained [here](https://developers.google.com/youtube/registering_an_application) on YouTube's Data API page. 
+
+It should be noted that a free API key only has a limited amount of uses per day. Once you have obtained the YouTube API key, add it to your config.js file (example file provided in example.config.js, but should be renamed 'config.js'). If deploying on Heroku, add the variable to your Heroku config vars as key: YOUTUBE_API_KEY and value: the string provided by YouTube API.
 
 # Screenshots of Deployed Application
 ![image-1](resources/image-1.png)
