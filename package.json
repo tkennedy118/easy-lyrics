@@ -1,0 +1,23 @@
+{
+  "name": "easy-lyrics",
+  "version": "1.0.0",
+  "description": "[Link to deployed application](https://tkennedy118.github.io/easy-lyrics/)",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tkennedy118/easy-lyrics.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/tkennedy118/easy-lyrics/issues"
+  },
+  "homepage": "https://github.com/tkennedy118/easy-lyrics#readme",
+  "dependencies": {
+    "express": "^4.17.1"
+  }
+}

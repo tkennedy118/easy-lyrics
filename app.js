@@ -57,9 +57,15 @@ $(document).ready(function() {
     // FUNCTION: requests video from YouTube API
     const getYouTubeVideo = function(artist, title) {
         
-        // get key from either local config file or from heroku environment.
-        if (process.env.YOUTUBE_API_KEY) { key = process.env.YOUTUBE_API_KEY }
-        else { key = YOUTUBE_API_KEY }
+        // Get YouTube API key.
+        let key = '';
+        $.ajax({ url: '/api/key', method: 'GET' })
+            .then(response => {
+                console.log('RESPONSE: ', response);
+
+                if (response) { key = response }
+                else { key = YOUTUBE_API_KEY }
+            });
 
         let search = encodeURI(artist + " " + title + " music video");
         let queryURL = "https://www.googleapis.com/youtube/v3/search?part=snippet&maxResults=1&q=" + search + "&key=" + key;
